@@ -1,11 +1,11 @@
 use reqwest_impersonate;
-use reqwest_impersonate::browser::ChromeVersion;
+//use reqwest_impersonate::browser::ChromeVersion;
 use anyhow::Result;
 
 #[tokio::main]
 async fn main() -> Result<()> {
     let client = reqwest_impersonate::Client::builder()
-        .chrome_builder(ChromeVersion::V104) // same result
+        //.chrome_builder(ChromeVersion::V104) // same result
         .build()
         .unwrap();
 
