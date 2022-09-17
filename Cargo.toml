@@ -1,5 +1,5 @@
 [package]
-name = "test-reqwest"
+name = "test-reqwest-impersonate"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,5 +7,11 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1"
-reqwest = { version = "0.11", default-features = false, features = ["rustls-tls"] }
+reqwest-impersonate = { git = "https://github.com/4JX/reqwest-impersonate.git", default-features = false, features = ["chrome"] }
 tokio = { version = "1", features = ["rt", "rt-multi-thread", "macros", "io-std", "io-util"] }
+openssl = { version = "0.10", features = ["vendored"] }
+
+[patch.crates-io]
+# Used by reqwest-impersonate
+hyper = { git = "https://github.com/4JX/hyper.git", branch = "0.14.x-patched" }
+h2 = { git = "https://github.com/4JX/h2.git", branch = "imp" }

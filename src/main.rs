@@ -1,9 +1,9 @@
-use reqwest;
+use reqwest_impersonate;
 use anyhow::Result;
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    let client = reqwest::Client::builder()
+    let client = reqwest_impersonate::Client::builder()
         .build()
         .unwrap();
 
